@@ -34,5 +34,9 @@ package io.restassured.response;
  * </pre>
  * </p>
  */
-public interface Response extends ResponseBody<Response>, ResponseOptions<Response>, Validatable<ValidatableResponse, Response> {
+public interface Response
+    extends ResponseBody<Response>, ResponseOptions<Response>, Validatable<ValidatableResponse, Response> {
+
+    void close();
+
 }

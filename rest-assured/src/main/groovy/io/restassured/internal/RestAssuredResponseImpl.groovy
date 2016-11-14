@@ -20,6 +20,10 @@ import io.restassured.response.Response
 
 class RestAssuredResponseImpl extends RestAssuredResponseOptionsImpl<Response> implements Response {
 
+  public void close() {
+     groovyResponse.connectionManager.shutdown();
+  }
+
   public void parseResponse(httpResponse, content, hasBodyAssertions, ResponseParserRegistrar responseParserRegistrar) {
     groovyResponse.parseResponse(httpResponse, content, hasBodyAssertions, responseParserRegistrar);
   }
